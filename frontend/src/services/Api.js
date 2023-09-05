@@ -17,13 +17,14 @@ export const fetchingFactory = async (fetchingFunction) => {
 }
 
 export const getProducts = async () =>
-  fetchingFactory(() => httpClient.get('/products'))
+  fetchingFactory(() => httpClient.get('/products?populate=*'))
 
 export const getProduct = async ({ productId }) =>
-  fetchingFactory(() => httpClient.get(`/products/${productId}`))
+  fetchingFactory(() => httpClient.get(`/products/${productId}?populate=*`))
 
 export const deleteProduct = async ({ productId }) =>
   fetchingFactory(() => httpClient.delete(`/products/${productId}`))
 
 export const updateProduct = async ({ productId, data }) =>
   fetchingFactory(() => httpClient.put(`/products/${productId}`, data))
+

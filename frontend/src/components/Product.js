@@ -2,8 +2,9 @@ import React from "react";
 import './Product.css'
 import { getFormattedDate } from "../utils/helper";
 import Button from "./Button";
+import { BACKEND_URL } from "../utils/config";
 
-const genderGirlIconPath = '/default-fallback-image.png'
+const defaultFallbackImage = '/default-fallback-image.png'
 
 function Product({ product, onEditSubmit, onDeleteSubmit }) {
   const {
@@ -11,14 +12,17 @@ function Product({ product, onEditSubmit, onDeleteSubmit }) {
     attributes: {
       Title: title,
       Description: description,
-      Picture: picture,
       createdAt
     }
   } = product;
 
+  const pictureUrl = product.attributes.Picture
+    ? `${BACKEND_URL}${product.attributes.Picture.data.attributes.formats.large.url}`
+    : defaultFallbackImage
+
   return (
     <div className="product-container">
-      <img className="product-picture" src={picture || genderGirlIconPath} />
+      <img className="product-picture" src={pictureUrl} />
       <div className="product-info">
         <h1>{title}</h1>
         <p>{getFormattedDate(createdAt)}</p>
