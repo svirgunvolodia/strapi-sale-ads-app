@@ -1,5 +1,6 @@
-import { createProduct } from './services/Api.js'
+import { createPageHeaderData, createProduct } from './services/Api.js'
 
+const PAGE_HEADER_TITLE = 'Guitars store!'
 const PRODUCTS_DEFAULT_DATA = [
     {
         Title: 'Gibson Les Paul 50s',
@@ -19,10 +20,12 @@ const PRODUCTS_DEFAULT_DATA = [
     }
 ]
 
-const seedData = async() => {
+const seedData = async () => {
     PRODUCTS_DEFAULT_DATA.map(async (product) => {
         await createProduct({ data: { data: product} })
     })
+
+    // const res = await createPageHeaderData({ data: { data: { title: PAGE_HEADER_TITLE } } })
 }
 
 seedData()
