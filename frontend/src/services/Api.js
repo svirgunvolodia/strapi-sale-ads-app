@@ -24,3 +24,6 @@ export const getProduct = async ({ productId }) =>
 
 export const deleteProduct = async ({ productId }) =>
   fetchingFactory(() => httpClient.delete(`/products/${productId}`))
+
+export const updateProduct = async ({ productId, data }) =>
+  fetchingFactory(() => httpClient.put(`/products/${productId}`, data))

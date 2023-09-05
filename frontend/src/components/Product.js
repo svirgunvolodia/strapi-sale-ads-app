@@ -25,7 +25,7 @@ function Product({ product, onEditSubmit, onDeleteSubmit }) {
         <span>{description}</span>
       </div>
       <div className="product-actions">
-        <Button onClick={onEditSubmit} text="Edit" />
+        <Button onClick={() => onEditSubmit(id)} text="Edit" />
         <Button onClick={() => onDeleteSubmit(id)} text="Delete" />
       </div>
     </div>
