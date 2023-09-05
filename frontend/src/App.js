@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { getProducts } from "./services/Api";
+import { getProducts, deleteProduct } from "./services/Api";
 import Product from "./components/Product";
+
+import "./App.css"
 
 function App() {
   const [products, setProducts] = useState([])
@@ -12,19 +14,32 @@ function App() {
     }
   }
 
+  const handleProductDelete = async (productId) => {
+    const confirmResult = window.confirm("Are you sure want to delete this product?")
+    if (confirmResult) {
+      const { isSuccessful } = await deleteProduct({ productId: productId })
+      if (isSuccessful) {
+        const filteredProducts = products.filter((product) => product.id !== productId);
+        setProducts(filteredProducts)
+      }
+    }
+  }
+
   useEffect(() => {
     fetchProducts()
   }, [])
 
   return (
-    <div className="App">
-      <ul>
+    <div className="page-wrapper">
+      <div className="products">
         {products.map((product) => (
-          <li>
-            <Product product={product} />
-          </li>
+          <Product
+            key={product.id}
+            product={product}
+            onDeleteSubmit={handleProductDelete}
+          />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

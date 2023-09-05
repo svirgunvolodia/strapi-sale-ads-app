@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { API_URL } from './utils/config'
+import { API_URL } from '../utils/config'
 
 export const httpClient = axios.create({
   baseURL: API_URL,
@@ -21,3 +21,6 @@ export const getProducts = async () =>
 
 export const getProduct = async ({ productId }) =>
   fetchingFactory(() => httpClient.get(`/products/${productId}`))
+
+export const deleteProduct = async ({ productId }) =>
+  fetchingFactory(() => httpClient.delete(`/products/${productId}`))
