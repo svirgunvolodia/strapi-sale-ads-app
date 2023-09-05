@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { getProducts, deleteProduct, updateProduct } from "./services/Api";
-import Product from "./components/Product";
+import { getProducts, deleteProduct, updateProduct } from "./services/Api.js";
+import Product from "./components/Product.js";
 
 import "./App.css"
-import EditProductModal from "./components/EditProductModal";
+import EditProductModal from "./components/EditProductModal.js";
 
 function App() {
   const [products, setProducts] = useState([])

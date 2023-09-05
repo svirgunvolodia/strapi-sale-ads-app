@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { API_URL } from '../utils/config'
+import { API_URL } from '../utils/config.js'
 
 export const httpClient = axios.create({
   baseURL: API_URL,
@@ -12,9 +12,13 @@ export const fetchingFactory = async (fetchingFunction) => {
 
     return { data: response.data, isSuccessful: true }
   } catch (error) {
-    return { data: error, errorCode: error?.response?.data?.code }
+
+    return { data: error.response, errorCode: error?.response?.data?.code }
   }
 }
+
+export const createProduct = async ({ data }) =>
+  fetchingFactory(() => httpClient.post('/products', data))
 
 export const getProducts = async () =>
   fetchingFactory(() => httpClient.get('/products?populate=*'))

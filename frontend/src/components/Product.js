@@ -1,8 +1,8 @@
 import React from "react";
 import './Product.css'
-import { getFormattedDate } from "../utils/helper";
-import Button from "./Button";
-import { BACKEND_URL } from "../utils/config";
+import { getFormattedDate } from "../utils/helper.js";
+import Button from "./Button.js";
+import { BACKEND_URL } from "../utils/config.js";
 
 const defaultFallbackImage = '/default-fallback-image.png'
 
@@ -16,8 +16,8 @@ function Product({ product, onEditSubmit, onDeleteSubmit }) {
     }
   } = product;
 
-  const pictureUrl = product.attributes.Picture
-    ? `${BACKEND_URL}${product.attributes.Picture.data.attributes.formats.large.url}`
+  const pictureUrl = product.attributes.Picture.data
+    ? `${BACKEND_URL}${product?.attributes.Picture.data?.attributes.formats.large.url}`
     : defaultFallbackImage
 
   return (

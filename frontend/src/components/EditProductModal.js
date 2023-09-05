@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './EditProductModal.css'
-import Button from "./Button";
+import Button from "./Button.js";
 
 function EditProductModal({ isOpen, onClose, onSave, product }) {
   const [title, setTitle] = useState(product?.attributes?.Title);
