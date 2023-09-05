@@ -1,0 +1,8 @@
+.page-wrapper {
+    padding: 25px;
+}
+
+.products {
+    display: flex;
+    gap: 25px;
+}
