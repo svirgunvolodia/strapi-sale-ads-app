@@ -16,8 +16,8 @@ function Product({ product, onEditSubmit, onDeleteSubmit }) {
     }
   } = product;
 
-  const pictureUrl = product.attributes.Picture.data
-    ? `${BACKEND_URL}${product?.attributes.Picture.data?.attributes.formats.large.url}`
+  const pictureUrl = product?.attributes?.Picture?.data
+    ? `${BACKEND_URL}${product?.attributes.Picture.data?.attributes.formats?.small?.url}`
     : defaultFallbackImage
 
   return (

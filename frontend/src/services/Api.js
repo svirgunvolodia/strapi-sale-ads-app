@@ -17,14 +17,8 @@ export const fetchingFactory = async (fetchingFunction) => {
   }
 }
 
-export const createPageHeaderData = async ({ data }) => 
-  fetchingFactory(() => httpClient.post('/pages', data))
-
 export const createProduct = async ({ data }) =>
   fetchingFactory(() => httpClient.post('/products', data))
-
-export const getPageHeaderData = async () =>
-  fetchingFactory(() => httpClient.get('/pages'))
 
 export const getProducts = async () =>
   fetchingFactory(() => httpClient.get('/products?populate=*'))

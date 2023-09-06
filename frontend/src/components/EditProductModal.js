@@ -40,8 +40,8 @@ function EditProductModal({ isOpen, onClose, onSave, product }) {
           onChange={handleDescriptionChange}
         ></textarea>
         <div className="modal-actions">
-          <Button onClick={handleSaveClick} text="Save"/>
           <Button onClick={onClose} text="Cancel"/>
+          <Button onClick={handleSaveClick} text="Save"/>
         </div>
       </div>
     </div>
