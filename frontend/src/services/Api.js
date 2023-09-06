@@ -17,6 +17,9 @@ export const fetchingFactory = async (fetchingFunction) => {
   }
 }
 
+export const getHeaders = async () =>
+  fetchingFactory(() => httpClient.get('/headers'))
+
 export const createProduct = async ({ data }) =>
   fetchingFactory(() => httpClient.post('/products', data))
 

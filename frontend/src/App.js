@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getProducts, deleteProduct, updateProduct } from "./services/Api.js";
+import EditProductModal from "./components/EditProductModal.js";
+import Header from "./components/Header.js";
 import Product from "./components/Product.js";
 
 import "./App.css"
-import EditProductModal from "./components/EditProductModal.js";
 
 function App() {
   const [products, setProducts] = useState([])
@@ -60,6 +61,7 @@ function App() {
 
   return (
     <div className="page-wrapper">
+      <Header />
       <div className="products">
         {products.map((product) => (
           <Product
